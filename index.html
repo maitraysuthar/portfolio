@@ -13,7 +13,7 @@
   <link href="css/custom.css" rel="stylesheet">
 
   <!-- fonts -->
-  <link href='http://fonts.googleapis.com/css?family=Nixie+One' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Nixie+One' rel='stylesheet' type='text/css'>
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900" rel="stylesheet">
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -60,7 +60,7 @@
             <div class="logo">
               <h1>ᗰᗩITᖇᗩY ᔕᑌTᕼᗩᖇ</h1>
             </div>
-            <p class="copyright">© 2014-2019 <a href="mailto:maitraysuthar@gmail.com">Maitray Suthar</a>, All rights reserved.</p>
+            <p class="copyright">© 2014-<span class="currentYear"></span> <a href="mailto:maitraysuthar@gmail.com">Maitray Suthar</a>, All rights reserved.</p>
           </div>
         </div>
         <div class="col-sm-7 right-wrapper">
@@ -143,7 +143,11 @@
                       <div class="d-flex flex-column about-credentials">
                         <div class="d-flex flex-row mb-3">
                           <div class="p-2"><i class="fas fa-dice-one"></i></div>
-                          <div class="p-2">More than <b>4</b> years of experience of software engineering, implementing leading, and launching software products.</div>
+                          <div class="p-2">More than 
+                            <div class="ctooltip"><span class="exp"></span>
+                              <span class="ctooltiptext full-exp"></span>
+                            </div> years of experience of software engineering, implementing leading, and launching software products.
+                            </div>
                         </div>
                         <div class="d-flex flex-row mb-3">
                           <div class="p-2"><i class="fas fa-dice-two"></i></div>
@@ -233,7 +237,7 @@
                         <div class=""><i class="fab fa-angular angular m-2 fs-25"></i>Angular</div>
                         <div class="d-block w-100">
                           <div class="progress skill-progress">
-                            <div class="progress-bar w-50" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                           </div>
                         </div>
                       </div>
@@ -248,6 +252,14 @@
                       <div class="d-flex flex-column mb-3">
                         <div class="">
                           <img src="images/icons/Jquery.png" class="m-2" height="25px" />jQuery</div>
+                        <div class="d-block w-100">
+                          <div class="progress skill-progress">
+                            <div class="progress-bar w-50" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="d-flex flex-column mb-3">
+                        <div class=""><i class="fab fa-vuejs vuejs m-2 fs-25"></i>Vue JS</div>
                         <div class="d-block w-100">
                           <div class="progress skill-progress">
                             <div class="progress-bar w-50" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
@@ -413,7 +425,7 @@
                       <p>Send me an email on <a href="mailto:maitraysuthar@gmail.com" class="contact-email">maitraysuthar@gmail.com</a> and let start work together!!</p>
                       <p>&nbsp;</p>
                       <p>For more details:</p>
-                      <p><a href="files/Maitray_Suthar_Resume_Updated_01-12-2019.pdf" target="_blank" class="btn btn-info">Download my Resume!</a></p>
+                      <p><a href="files/Maitray_Suthar_Resume_Updated_01-09-2020.pdf" target="_blank" class="btn btn-info">Download my Resume!</a></p>
                       <p>&nbsp;</p>
                       <p>Connect with me on Social:</p>
                       <p>
@@ -453,7 +465,38 @@
     <!-- <script src="js/bootstrap.min.js"></script>
     -->    
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js" integrity="sha512-rmZcZsyhe0/MAjquhTgiUcb4d9knaFc7b5xAfju483gbEXTkeJRUMIPk6s3ySZMYUHEcjKbjLjyddGWMrNEvZg==" crossorigin="anonymous"></script>
     <script src="js/allscript.js"></script>
+    <script type="text/javascript">
+      $('.currentYear').html(moment().format('yyyy'));
+
+      setInterval(diffYMDHMS, 1000);
+
+       function diffYMDHMS() {
+          let date2 = moment([2015, 2, 1]);
+          let date1 = moment();
+
+          let years = date1.diff(date2, 'year');
+          date2.add(years, 'years');
+
+          let months = date1.diff(date2, 'months');
+          date2.add(months, 'months');
+
+          let days = date1.diff(date2, 'days');
+          date2.add(days, 'days');
+
+          let hours = date1.diff(date2, 'hours');
+          date2.add(hours, 'hours');
+
+          let minutes = date1.diff(date2, 'minutes');
+          date2.add(minutes, 'minutes');
+
+          let seconds = date1.diff(date2, 'seconds');
+
+          $('.exp').html(years);
+          $('.full-exp').html(years + ' years ' + months + ' months ' + days + ' days ' + hours + ' hours ' + minutes + ' minutes ' + seconds + ' seconds');
+      }
+    </script>
     <script>
       if (window.innerWidth > 700 && window.screen.orientation.angle == 0){
         var PleaseRotateOptions = {
